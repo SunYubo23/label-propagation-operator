@@ -4,18 +4,19 @@ This repository contains the official Julia implementation for the paper **"Fast
 
 It provides the source code for our proposed fast algorithms, baseline comparisons, and ablation studies to efficiently compute the label propagation operator (Q-matrix) on signed networks.
 
-##  Algorithms Overview
+## Algorithms and Baselines
 
-In our paper, we propose two primary fast algorithms and compare them alongside their respective ablation variants:
+In this paper, we focus on the development of a scalable label propagation approach. We introduce our proposed algorithm and evaluate its performance against competitive baselines and ablation variants.
 
-**Main Algorithms:**
-1. `RandomWalkQ`: A fast approximation algorithm based on random walks.
-2. `MultiTreeQ`: An optimized multi-tree based approach for scalable label propagation.
+### Proposed Method
+* `MultiTreeQ`: Our primary contribution, an optimized multi-tree based approach designed for scalable label propagation. It leverages [mention key technique, e.g., forest sampling or structural balance] to achieve high computational efficiency on large-scale signed graphs.
 
-**Ablation Studies:**
-1. `RandomWalkQ_woT`: The random walk approach without [T , e.g., Truncation].
-2. `MultiTreeQ_woRB`: The multi-tree approach without [RB, e.g., Rao-Blackwellization].
+### Baselines and Ablation Variants
+To demonstrate the effectiveness of `MultiTreeQ`, we compare it with the following algorithms:
 
+1.  `RandomWalkQ`: A fast approximation baseline based on random walks, used to provide a performance benchmark for accuracy and convergence speed.
+2.  `MultiTreeQ_woRB`: An ablation variant of our proposed method without [e.g., Rao-Blackwellization], used to quantify the contribution of specific optimization components within `MultiTreeQ`.
+3.  `RandomWalkQ_woT`: A simplified version of the random walk baseline without [e.g., Truncation], included to provide a comprehensive comparison across different algorithmic configurations.
 ##  Repository Structure
 
 * `algorithm.jl`: Contains the core implementations of the four algorithms mentioned above, as well as the exact/baseline solver.
